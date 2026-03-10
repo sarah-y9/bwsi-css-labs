@@ -50,6 +50,21 @@ def request_santized_number(prompt: str) -> float:
             return number
         except ValueError:
             print("Invalid input. Please enter a valid number")
+
+def request_sanitized_operation(prompt: str) -> str:
+    """
+    Function to request and use input for the operation.
+    Ensures the user picks a valid math operation.
+    """
+    valid_ops = ["add", "subtract", "multiply", "divide"]
+    while True:
+        choice = input(prompt)
+        for op in valid_ops:
+            if choice == op:
+                return choice
+        else:
+            print("Invalid input. Please enter a valid operation")
+
 def main():
     
     print(f"===== Simple Calculator =====")
