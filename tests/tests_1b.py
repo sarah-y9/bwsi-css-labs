@@ -7,6 +7,18 @@ This module contains unit tests for the simple_calculator function defined in la
 import pytest
 from labs.lab_1.lab_1b import simple_calculator
 
+def test_negative_subtraction():
+    assert simple_calculator("subtract", 10, 50) == -40
+    assert simple_calculator("subtract", -10, 5) == -15
+
+def test_large_numbers():
+    assert simple_calculator("add", 1000, 5000) == 6000
+    assert simple_calculator("multiply", 100, 100) == 10000
+
+def test_decimal_inputs():
+    assert simple_calculator("add", 1.5, 1.5) == 3.0
+    assert simple_calculator("multiply", 2.5, 2) == 5.0
+
 def test_addition():
     assert simple_calculator("add", 5, 3) == 8          # Test for positive numbers
     assert simple_calculator("add", -2, 2) == 0         # Test for negative and positive number
