@@ -20,14 +20,27 @@ def two_sum(nums: list[int], target: int) -> list[int]:
     Returns:
         list[int]: Indices of the two numbers that add up to the target.
     """
+    target = sanitize_target(target)
+    nums = sanitize_list(nums)
 
     num_to_index = {}
     for index, num in enumerate(nums):
-        complement = target + num
+        complement = target - num
         if complement in num_to_index:
             return [num_to_index[complement], index]
         num_to_index[num] = index
     return []  # In case there is no solution, though the problem guarantees one exists.
+
+def sanitize_target(target: int) -> int:
+    if type(target) is not int:
+        raise ValueError("Invalid target. Please use a valid number.")
+    return target
+
+def sanitize_list(nums: list[int]) -> list[int]:
+    for x in nums:
+        if type(x) is not int:
+            raise ValueError("Invalid list. Please use valid numbers.")
+    return nums
 
 # Example usage:
 def main():
