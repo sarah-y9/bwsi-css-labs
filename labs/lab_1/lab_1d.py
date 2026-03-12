@@ -41,7 +41,6 @@ def sanitize_list(nums: list[int]) -> list[int]:
         if type(x) is not int:
             raise ValueError("Invalid list. Please use valid numbers.")
     return nums
-    
 
 # Example usage:
 def main():
