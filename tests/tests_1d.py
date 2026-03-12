@@ -23,3 +23,4 @@ def test_invalid_inputs():
 def test_empty():
     assert two_sum([1, 2, 3], 10) == [] # Testing with no solution
     assert two_sum([], 9) == [] # Testing with empty list
+
