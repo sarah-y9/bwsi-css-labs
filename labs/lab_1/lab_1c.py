@@ -19,6 +19,8 @@ def max_subarray_sum(nums: list[int]) -> int:
     Returns:
         int: The maximum sum of any contiguous subarray.
     """
+    sanitize_list(nums)
+    
     if not nums:
         return 0
     
@@ -30,6 +32,14 @@ def max_subarray_sum(nums: list[int]) -> int:
             max_global = max_current
             
     return max_global
+
+def sanitize_list(nums: list[int]) -> list[int]:
+    try:
+        for x in nums:
+            int(x)
+        return nums
+    except (ValueError, TypeError):
+        raise ValueError("Invalid input. Please enter a list of valid numbers.")
 
 # Example usage:
 def main():
