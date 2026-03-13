@@ -34,12 +34,16 @@ def max_subarray_sum(nums: list[int]) -> int:
     return max_global
 
 def sanitize_list(nums: list[int]) -> list[int]:
-    try:
-        for x in nums:
-            int(x)
-        return nums
-    except (ValueError, TypeError):
-        raise ValueError("Invalid input. Please enter a list of valid numbers.")
+    """
+    Function to sanitize input for max_subarray_sum
+
+    Returns:
+        list[int]: The list of integers.
+    """
+    for x in nums:
+        if type(x) is not int:
+            raise ValueError("Invalid input. Please enter a list of valid numbers.")
+    return nums
 
 # Example usage:
 def main():
